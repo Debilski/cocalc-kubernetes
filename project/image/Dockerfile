@@ -1,8 +1,8 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive LANG=C.UTF-8 LC_ALL=C.UTF-8
 
-LABEL maintainer="SageMath, Inc. <office@sagemath.com>"
+LABEL maintainer="Rike-Benjamin Schuppner <rike.schuppner@bccn-berlin.de>"
 
 # So we can source (http://goo.gl/oBPi5G), which we will do in build.sh.
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -96,7 +96,7 @@ RUN \
      apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y xvfb websockify curl \
   && curl https://xpra.org/gpg.asc | apt-key add - \
-  && echo "deb http://xpra.org/ bionic main" > /etc/apt/sources.list.d/xpra.list \
+  && echo "deb http://xpra.org/ focal main" > /etc/apt/sources.list.d/xpra.list \
   && apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y xpra
 
